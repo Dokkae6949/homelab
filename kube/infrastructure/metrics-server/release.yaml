@@ -23,4 +23,4 @@ spec:
   values:
     replicas: 2
     args:
-      - --kublet-insecure-tls
+      - --kubelet-insecure-tls
