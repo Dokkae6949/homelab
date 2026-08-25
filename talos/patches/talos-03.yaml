@@ -1,0 +1,14 @@
+machine:
+  install:
+    disk: /dev/nvme0n1
+    wipe: true
+---
+apiVersion: v1alpha1
+kind: HostnameConfig
+hostname: talos-03
+auto: off
+---
+apiVersion: v1alpha1
+kind: Layer2VIPConfig
+name: 192.168.0.20
+link: enp2s0

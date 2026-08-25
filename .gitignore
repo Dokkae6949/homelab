@@ -1,0 +1,13 @@
+# Talos / Kubernetes secrets
+credentials/
+talos/secrets.yaml
+talos/generated/
+talos/backups/
+
+# Editor/temp files
+*.swp
+*.tmp
+.DS_Store
+
+# Nix files
+.direnv/
