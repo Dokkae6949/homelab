@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello
+  namespace: hello
+spec:
+  ingressClassName: traefik
+
+  rules:
+    - host: hello.dokkae.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              serice:
+                name: hello
+                port:
+                  number: 80
