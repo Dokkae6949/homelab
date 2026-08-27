@@ -1,0 +1,18 @@
+apiVersion: tailscale.com/v1alpha1
+kind: Connector
+metadata:
+  name: homelab-k8s-router
+spec:
+  replicas: 2
+
+  hostnamePrefix: homelab-k8s-router
+
+  tags:
+    - "tag:homelab-k8s-router"
+
+  subnetRouter:
+    advertiseRoutes:
+      - "192.168.0.20/32"
+      - "192.168.0.21/32"
+      - "192.168.0.22/32"
+      - "192.168.0.23/32"

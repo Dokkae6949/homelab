@@ -5,3 +5,4 @@ resources:
   - oauth.sops.yaml
   - repository.yaml
   - release.yaml
+  - connector.yaml
