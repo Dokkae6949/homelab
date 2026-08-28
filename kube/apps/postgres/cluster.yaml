@@ -1,0 +1,29 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: postgres
+  namespace: postgres
+spec:
+  instances: 2
+
+  imageName: ghcr.io/cloudnative-pg/postgresql:18.4-standard-trixie
+
+  enableSuperuserAccess: false
+
+  primaryUpdateStrategy: unsupervised
+  primaryUpdateMethod: switchover
+
+  affinity:
+    enablePodAntiAffinity: true
+    topologyKey: kubernetes.io/hostname
+    podAntiAffinityType: required
+
+  bootstrap:
+    initdb:
+      database: app
+      owner: app
+      dataChecksums: true
+
+  storage:
+    storageClass: longhorn-r2
+    size: 15Gi
