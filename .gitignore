@@ -3,6 +3,7 @@ credentials/
 talos/secrets.yaml
 talos/generated/
 talos/backups/
+talos/image-factory/schematic-id
 
 # Editor/temp files
 *.swp
