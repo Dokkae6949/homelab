@@ -5,3 +5,4 @@ resources:
   - repository.yaml
   - grafana-admin.sops.yaml
   - release.yaml
+  - grafana-tailscale-ingress.yaml
