@@ -6,7 +6,6 @@ metadata:
 spec:
   interval: 30m
   timeout: 10m
-
   chart:
     spec:
       chart: longhorn
@@ -16,20 +15,20 @@ spec:
         name: longhorn
         namespace: longhorn-system
       interval: 1h
-
   install:
     remediation:
       retries: 3
-
   upgrade:
     remediation:
       retries: 3
-
   values:
     persistence:
       createStorageClass: false
-
     defaultSettings:
       defaultDataPath: /var/mnt/longhorn
       v1DataEngine: true
       v2DataEngine: false
+    metrics:
+      serviceMonitor:
+        enabled: true
+        interval: 30s
