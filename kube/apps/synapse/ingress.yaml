@@ -1,0 +1,51 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: synapse
+  namespace: synapse
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: matrix.dokkae.com
+      http:
+        paths:
+          - path: /_matrix
+            pathType: Prefix
+            backend:
+              service:
+                name: synapse
+                port:
+                  number: 8008
+          - path: /_synapse/client
+            pathType: Prefix
+            backend:
+              service:
+                name: synapse
+                port:
+                  number: 8008
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: matrix-well-known
+  namespace: synapse
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: dokkae.com
+      http:
+        paths:
+          - path: /.well-known/matrix/client
+            pathType: Exact
+            backend:
+              service:
+                name: matrix-well-known
+                port:
+                  number: 8080
+          - path: /.well-known/matrix/server
+            pathType: Exact
+            backend:
+              service:
+                name: matrix-well-known
+                port:
+                  number: 8080

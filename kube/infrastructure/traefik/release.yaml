@@ -25,6 +25,13 @@ spec:
       replicas: 2
     service:
       type: ClusterIP
+    ports:
+      web:
+        forwardedHeaders:
+          # cloudflared runs on the cluster Pod network. Preserve Cloudflare's
+          # original X-Forwarded-* values without trusting arbitrary clients.
+          trustedIPs:
+            - 10.244.0.0/16
     ingressClass:
       enabled: true
       isDefaultClass: true
