@@ -15,6 +15,7 @@ data:
     macaroon_secret_key_path: /run/secrets/main/macaroon-secret-key
 
     report_stats: false
+    enable_metrics: true
 
     listeners:
       - port: 8008
@@ -28,6 +29,12 @@ data:
               - client
               - federation
             compress: false
+
+      # Internal-only endpoint scraped directly from the Pod by Prometheus.
+      - port: 9000
+        bind_addresses:
+          - "0.0.0.0"
+        type: metrics
 
     database:
       name: psycopg2

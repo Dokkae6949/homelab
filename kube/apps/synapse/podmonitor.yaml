@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: synapse
+  namespace: synapse
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: synapse
+  podMetricsEndpoints:
+    - port: metrics
+      path: /_synapse/metrics
+      interval: 30s
+      scrapeTimeout: 10s
