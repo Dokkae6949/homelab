@@ -5,3 +5,6 @@ resources:
   - secrets.sops.yaml
   - signing-key.sops.yaml
   - config.yaml
+  - pvc.yaml
+  - deployment.yaml
+  - service.yaml
