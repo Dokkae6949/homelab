@@ -1,0 +1,15 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: synapse
+  namespace: postgres
+spec:
+  cluster:
+    name: postgres
+  name: synapse
+  owner: synapse
+  template: template0
+  encoding: UTF8
+  localeCollate: C
+  localeCType: C
+  databaseReclaimPolicy: retain

@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: synapse-postgres-user
+    namespace: postgres
+    labels:
+        cnpg.io/reload: "true"
+data:
+    username: ENC[AES256_GCM,data:JQobX4mgjA==,iv:w1Kg0cQUdEUITa40bc8lUHy1qcpnvNaU8oh1MJ9GD0A=,tag:Zc/Byv2syKIK9j9la8JVaA==,type:str]
+    password: ENC[AES256_GCM,data:dRdApTh7wHXRaUCx2edZFR+QJbSN1CXbokyVLSJDjI4mlCyQdKzFPvSpY/WJdvQT,iv:OxeodibmA5iiplqemI9Ztn0uMD3Yd7AzcfVUApZi+vc=,tag:Bu9+u3sIa8fIHZ7B3GtRIg==,type:str]
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSArcFdFWHR4YmVVU1duT1V6
+            aFphMFIvb0pBL20xSVFabDBSeUJNY2V0NnprCmVlRWZJRlZjaXVCV1V2Y1ZIRGZ5
+            WEk3UHMxekRGaytIMit1dEI4elFuUTgKLS0tIFFseTVxR3Z6UndpSTlBL01OZXNq
+            NUZxNHRDZlZCU0JQTW1PcDRhdklrRm8KrhYx1YnS70YDXlD9WfMJd5pfqZsjuMHt
+            fFWOxxWbvVwHAaEJlEFTDRiqkhiPoKC0H4COng0/N0PTpW+AWbg3Zg==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age16c82nw2ut3vx6jfc28vx72090wt7fluyp5m2mw68f09qf4lecefq3zn9t5
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-09-02T19:59:40Z"
+    mac: ENC[AES256_GCM,data:mzRndba9vwh3gR/57CtrBaHuibDYj5dUyBUaZMaPSY7sqeTlUfGHfHlYWNhC/pY1e9SQzNFsvZoQ3BBs7uypFqpJEooB1b9YK3gdioSltRmvYQKRD0eKhsEjrafrxpDVgpMdVuDN0zG9hWap5g57OaGM/Kl3/M+TkzcQoJMiHt4=,iv:pmT1LYAJ1WtOlNAMujzxn8aROMIhC7yPNthdrrUhOT0=,tag:PfSwBCjAJFA0B7PAC+ocjA==,type:str]
+    version: 3.13.3

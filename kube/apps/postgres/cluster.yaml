@@ -24,6 +24,17 @@ spec:
       owner: app
       dataChecksums: true
 
+  managed:
+    roles:
+      - name: synapse
+        ensure: present
+        login: true
+        superuser: false
+        createrole: false
+        connectionLimit: 12
+        passwordSecret:
+          name: synapse-posgres-user
+
   storage:
     storageClass: longhorn-r2
-    size: 15Gi
+    size: 40Gi
