@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: synapse-config
+  namespace: synapse
+data:
+  homeserver.yaml: |
+    # Immutable Matrix identity domain. This determines @user:dokkae.com.
+    server_name: "dokkae.com"
+    public_baseurl: "https://matrix.dokkae.com/"
+
+    pid_file: /tmp/homeserver.pid
+    signing_key_path: /run/secrets/signing/signing.key
+    registration_shared_secret_path: /run/secrets/main/registration-shared-secret
+    macaroon_secret_key_path: /run/secrets/main/macaroon-secret-key
+
+    report_stats: false
+
+    listeners:
+      - port: 8008
+        bind_addresses:
+          - "0.0.0.0"
+        type: http
+        tls: false
+        x_forwarded: true
+        resources:
+          - names:
+              - client
+              - federation
+            compress: false
+
+    database:
+      name: psycopg2
+      args:
+        user: synapse
+        password: __DATABASE_PASSWORD__
+        dbname: synapse
+        host: postgres-rw.postgres.svc.cluster.local
+        port: 5432
+        cp_min: 2
+        cp_max: 8
+        keepalives_idle: 10
+        keepalives_interval: 10
+        keepalives_count: 3
+
+    enable_registration: false
+    allow_guest_access: false
+
+    # Do not enforce per-room event expiry globally.
+    retention:
+      enabled: false
+
+    media_store_path: /data/media_store
+    media_retention:
+      remote_media_lifetime: 7d
+    max_upload_size: 20M
+
+    url_preview_enabled: false
+
+    presence:
+      enabled: true
+
+    enable_search: true
+
+    trusted_key_servers:
+      - server_name: matrix.org
+    suppress_key_server_warning: true

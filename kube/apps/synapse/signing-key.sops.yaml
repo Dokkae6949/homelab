@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: synapse-signing-key
+    namespace: synapse
+type: Opaque
+stringData:
+    signing.key: ENC[AES256_GCM,data:JD1lFFGy++yfGipoOkSLOaedUGBKo75UUBGBXXdLqjfMbFmNqaDwsu2BOjtHAKqPKpIbYqPuwkR/PZU=,iv:ltgv9cWUrH2+j7LapXQVKLnkR9wAhzlja8Cci6eOELk=,tag:ARjQsJ1+wMuYjuIETbmqDA==,type:str]
+sops:
+    age:
+        - enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBSd1dhQkE2Z2pLNnZGbW5u
+            QTZDSWdXOVYxSHJrbG1SeFI0S3BuaUk5bkM0CkNWK09ha1ZUUXNuVzBxMUY1UmpR
+            OVpqRjJGRnN3Z3NHU09iM1l0TlE0QzgKLS0tIFV6ZXZwcjZseDA2NlZBbWFESDdY
+            WmdTblBIc0RNMmVxNG5GUXA3QWxEeHMK1XF2L8uRfanz/dfx8qF/b1R38aDU5aCU
+            KZeDlQpvp92NjMMR+GhtzhGJoiSDh0IHXgBsJYiOP94sUxqdc1Hc1g==
+            -----END AGE ENCRYPTED FILE-----
+          recipient: age16c82nw2ut3vx6jfc28vx72090wt7fluyp5m2mw68f09qf4lecefq3zn9t5
+    encrypted_regex: ^(data|stringData)$
+    lastmodified: "2026-09-02T20:21:25Z"
+    mac: ENC[AES256_GCM,data:+YNUn7se8satzAMith3dJwsMUqFdrlMGRxmXBcV1KefzrY0Sxk8qwNMajYRd4x+5sVmije2SUUW7jS/ZMRTmmTpwKMOtd17PAMpD6PfKmLvhRekgdW5rd1rTio1kpkSBffoEJLUfNrk2SLtAPvCjhC4qg7byHkdWsiP3ZNrZMSU=,iv:MjbnEjt7pEQ304/B7cyWLxCm/7+k1FJGdSkGjLESkhc=,tag:lUeqkP2emZmtpRYgDYxhXQ==,type:str]
+    version: 3.13.3
