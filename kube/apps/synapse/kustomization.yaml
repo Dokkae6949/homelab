@@ -1,11 +1,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-configMapGenerator:
-  - name: matrix-well-known
-    namespace: synapse
-    files:
-      - nginx.conf=nginx.conf
-      - default.conf=well-known.conf
 resources:
   - namespace.yaml
   - secrets.sops.yaml
@@ -15,4 +9,3 @@ resources:
   - deployment.yaml
   - service.yaml
   - ingress.yaml
-  - well-known.yaml
