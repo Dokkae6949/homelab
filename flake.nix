@@ -47,6 +47,8 @@
             export TALOSCONFIG="$CLUSTER_ROOT/credentials/talosconfig"
             export KUBECONFIG="$CLUSTER_ROOT/credentials/kubeconfig"
 
+            export SOPS_AGE_KEY_FILE="$CLUSTER_ROOT/credentials/sops-age.agekey"
+
             if [ -f "$CLUSTER_ROOT/cluster.env" ]; then
               source "$CLUSTER_ROOT/cluster.env"
             fi
@@ -58,6 +60,7 @@
             echo "Cluster root: $CLUSTER_ROOT"
             echo "TALOSCONFIG:  $TALOSCONFIG"
             echo "KUBECONFIG:   $KUBECONFIG"
+            echo "SOPS_AGE_KEY: $SOPS_AGE_KEY_FILE"
             echo
           '';
         };
