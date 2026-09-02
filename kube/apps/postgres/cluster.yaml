@@ -33,7 +33,7 @@ spec:
         createrole: false
         connectionLimit: 12
         passwordSecret:
-          name: synapse-posgres-user
+          name: synapse-postgres-user
 
   storage:
     storageClass: longhorn-r2
