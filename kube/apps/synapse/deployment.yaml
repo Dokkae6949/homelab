@@ -16,7 +16,7 @@ spec:
         app.kubernetes.io/name: synapse
       annotations:
         # Bump when config or startup-consumed Secrets change.
-        dokkae.com/config-revision: "2"
+        dokkae.com/config-revision: "3"
     spec:
       terminationGracePeriodSeconds: 60
       securityContext:
