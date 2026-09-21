@@ -62,7 +62,7 @@ data:
       remote_media_lifetime: 7d
     max_upload_size: 20M
 
-    url_preview_enabled: false
+    url_preview_enabled: true
 
     presence:
       enabled: true
