@@ -1,0 +1,44 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+nameSuffix: "-2"
+resources:
+  - ../base
+labels:
+  - pairs:
+      app.kubernetes.io/instance: forgejo-runner-2
+    includeSelectors: false
+    includeTemplates: true
+configMapGenerator:
+  - name: forgejo-runner-instance
+    literals:
+      - FORGEJO_INSTANCE_URL=https://codeberg.org/
+replicas:
+  - name: forgejo-runner
+    count: 1
+patches:
+  - target:
+      kind: Deployment
+      name: forgejo-runner
+    patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: forgejo-runner
+      spec:
+        selector:
+          matchLabels:
+            app.kubernetes.io/instance: forgejo-runner-2
+        template:
+          spec:
+            containers:
+              - name: runner
+                env:
+                  - name: RUNNER_UUID
+                    valueFrom:
+                      secretKeyRef:
+                        name: forgejo-runner-credentials-2
+                        key: uuid
+            volumes:
+              - name: credentials
+                secret:
+                  secretName: forgejo-runner-credentials-2

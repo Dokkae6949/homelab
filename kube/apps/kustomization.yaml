@@ -4,3 +4,4 @@ resources:
   - ./hello
   - ./postgres
   - ./synapse
+  - ./forgejo-runners

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: forgejo-runner-cache
+spec:
+  accessModes: [ReadWriteOnce]
+  storageClassName: longhorn-r1
+  resources:
+    requests:
+      storage: 10Gi

@@ -1,0 +1,24 @@
+log:
+  level: info
+runner:
+  capacity: 1
+  timeout: 1h
+  shutdown_timeout: 60s
+  insecure: false
+  labels:
+    - debian-bookworm:docker://docker.io/library/node:22-bookworm
+cache:
+  enabled: true
+  dir: /cache/actions
+  # Job containers reach their own pod through the Docker host gateway.
+  host: runner-cache
+  proxy_port: 8088
+  port: 8089
+container:
+  network: ""
+  options: --add-host=runner-cache:host-gateway
+  privileged: false
+  valid_volumes: []
+  # Use DOCKER_HOST for the runner; never mount the socket into jobs.
+  docker_host: "-"
+  force_pull: true
