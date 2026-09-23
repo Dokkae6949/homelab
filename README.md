@@ -1,10 +1,5 @@
 # Homelab
 
-## Applications
-
-- [Forgejo runners for Codeberg](kube/apps/forgejo-runners/README.md): independent
-  runners, registration, and isolation requirements.
-
 ## Network Topology
 - Kubernetes API
   - IP: 192.168.0.20
